@@ -1,15 +1,12 @@
-from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String
+from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-#PLACE YOUR TABLE SETUP INFORMATION HERE
-
-
-class Questions(Base):
-    __tablename__ = 'question'
+class Answers(Base):
+    __tablename__ = 'answer'
     id = Column(Integer, primary_key=True)
     question= Column(Integer)
     quiz.id= Column(Integer)
@@ -17,7 +14,7 @@ class Questions(Base):
    	option_2= Column(String)
    	option_3= Column(String)
    	option_4= Column(String)
-   	Correct =Column(Integer)
+   	correct =Column(Boolean)
 
 class quiz(Base):
 	__tablename__='quiz'
