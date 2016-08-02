@@ -10,18 +10,20 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-id = Column(Integer, primary_key=True)
-    question= Column(Integer)
-    quiz.id= Column(Integer)
-   	option_1= Column(String)
-   	option_2= Column(String)
-   	option_3= Column(String)
-   	option_4= Column(String)
-   	correct =Column(Boolean)
 
+quiz_1=quiz(
+	country="China"
+	name="China_1"
+
+	)
+info_quiz_1=session.query(quiz).filter_by(id=question_1.quiz_id).one()
+info_quiz_1.country
+session.add(quiz_1)
+session.commit()
 question_1= Questions(
+#quiz 1
+	quiz_id=quiz_1.id,
 	question="What is China's capital?",
-	#quiz.id goes here
 	option_1="Tokyo",
 	option_2="Shanghai",
 	option_3="Beijing",

@@ -12,7 +12,7 @@ class Questions(Base):
     __tablename__ = 'question'
     id = Column(Integer, primary_key=True)
     question= Column(Integer)
-    quiz.id= Column(Integer)
+    quiz_id= Column(Integer, ForeignKey('quiz.id'))
    	option_1= Column(String)
    	option_2= Column(String)
    	option_3= Column(String)
@@ -22,6 +22,6 @@ class Questions(Base):
 class quiz(Base):
 	__tablename__='quiz'
 	id=Column(Integer, primary_key=True)
-	country= Column(String)
+	country= Column(String, )
 	name=Column(String)
 
