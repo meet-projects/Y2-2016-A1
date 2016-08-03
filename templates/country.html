@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+    QuizIt~France 
+  </title>
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+<meta name=“viewport” content=“width= device-width, initialscale=1.0”>   
+</head>
+
+<body>
+
+
+<div align="center">
+<h1>{{flag_name}}</h1>
+</div>
+<div align="center" class="container">
+<img class= 'picture-circle' src="{{picture}}" width="210" height="180"> 
+</div>
+<br>
+
+<br>
+<br>
+<br>
+<div class="row">
+
+<ol align="center" class="list-group">
+{% for quiz in quizzes %}
+	
+	<li class="list-group-item"><a href="{{url_for('quiz', quiz_id=quiz.id)}}"> Quiz 1</a></li>
+	<br>
+	{% endfor %}
+</ol>
+</div>
+
+</div>
+</body>
+
+</html>
