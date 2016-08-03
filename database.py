@@ -10,6 +10,7 @@ class quiz(Base):
   id=Column(Integer, primary_key=True)
   country= Column(String)
   name=Column(String)
+  num=Column(Integer)
 
 class Answers(Base):
     __tablename__ = 'answer'

@@ -13,27 +13,33 @@ session = DBSession()
 
 china_quiz_1=Quiz(
 	country="China",
-	name="China_1"
+	name="China_1",
+	num=1
 	)
 china_quiz_2=Quiz(
    country="China",
-   name="China_2"
+   name="China_2",
+   num=2
  )
 france_quiz_1=Quiz(
  country="France",
- name="France_1"
+ name="France_1",
+ num=1
 )
 france_quiz_2=Quiz(
 	country="France",
-	name="France_2"
+	name="France_2",
+	num=2
 )
 us_quiz_1=Quiz(
   country="United_States",
-  name="United_States_1"
+  name="United_States_1",
+  num=1
 )
 us_quiz_2=Quiz(
   country="United_States",
-  name="United_States_2"
+  name="United_States_2",
+  num=2
 )
 
 

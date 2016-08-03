@@ -19,7 +19,10 @@
 
 
 <div align="center">
+<br>
 <h1>{{flag_name}}</h1>
+<br>
+<br>
 </div>
 <div align="center" class="container">
 <img class= 'picture-circle' src="{{picture}}" width="210"> 
@@ -36,7 +39,7 @@
 	
 	<li class="list-group-item"><a href="{{url_for('quiz', quiz_id=quiz.id)}}"> Quiz 1</a></li>
 	<br>
-	{% endfor %}
+{% endfor %}
 </ol>
 </div>
 
