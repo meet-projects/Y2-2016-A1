@@ -17,11 +17,12 @@ class Questions(Base):
     option_2= Column(String)
     option_3= Column(String)
     option_4= Column(String)
-    Correct =Column(Integer)
+    correct =Column(Integer)
 
 class Quiz(Base):
   __tablename__='quiz'
   id=Column(Integer, primary_key=True)
   country= Column(String)
   name=Column(String)
+
 
