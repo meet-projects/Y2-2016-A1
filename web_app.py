@@ -24,16 +24,20 @@ def main():
 
 @app.route("/quiz/<string:flag_name>")
 def flag(flag_name):
-	if flag_name=="united states":
-    	return render_template('united_states.html')
+    if flag_name=="united states":
+        return render_template('united_states.html')
     elif flag_name=="china":
-    	return render_template ("china.html")
+        return render_template ("china.html")
     elif flag_name=="india":
-    	return render_template("india.html")
+        return render_template("india.html")
     elif flag_name=="france":
-    	return render_template("france.html")
+        return render_template("france.html")
     elif flag_name=="italy":
-    	return render_template("italy.html")
+        return render_template("italy.html")
+
+@app.route("/quiz_1/<string:flag_name>")
+def quiz()
+
 
 
 
