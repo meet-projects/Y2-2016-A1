@@ -19,7 +19,7 @@ class Questions(Base):
     option_4= Column(String)
     Correct =Column(Integer)
 
-class quiz(Base):
+class Quiz(Base):
   __tablename__='quiz'
   id=Column(Integer, primary_key=True)
   country= Column(String)
