@@ -13,15 +13,15 @@ class Questions(Base):
     id = Column(Integer, primary_key=True)
     question= Column(Integer)
     quiz_id= Column(Integer, ForeignKey('quiz.id'))
-   	option_1= Column(String)
-   	option_2= Column(String)
-   	option_3= Column(String)
-   	option_4= Column(String)
-   	Correct =Column(Integer)
+    option_1= Column(String)
+    option_2= Column(String)
+    option_3= Column(String)
+    option_4= Column(String)
+    Correct =Column(Integer)
 
 class quiz(Base):
-	__tablename__='quiz'
-	id=Column(Integer, primary_key=True)
-	country= Column(String, )
-	name=Column(String)
+  __tablename__='quiz'
+  id=Column(Integer, primary_key=True)
+  country= Column(String)
+  name=Column(String)
 
