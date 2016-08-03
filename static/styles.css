@@ -2,3 +2,9 @@
 .thumbnail{
 	border: none;
 }
+.double-lines{
+	height:20px;
+	border-bottom:5px solid #1d3461;
+	border-top:5px solid #a30015;
+	margin-top :7px;
+}
