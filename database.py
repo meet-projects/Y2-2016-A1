@@ -5,20 +5,21 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
+class quiz(Base):
+  __tablename__='quiz'
+  id=Column(Integer, primary_key=True)
+  country= Column(String)
+  name=Column(String)
+
 class Answers(Base):
     __tablename__ = 'answer'
     id = Column(Integer, primary_key=True)
     question= Column(Integer)
-    quiz.id= Column(Integer)
-   	option_1= Column(String)
-   	option_2= Column(String)
-   	option_3= Column(String)
-   	option_4= Column(String)
-   	correct =Column(Boolean)
+    quiz_id= Column(Integer)
+    option_1= Column(String)
+    option_2= Column(String)
+    option_3= Column(String)
+    option_4= Column(String)
+    correct =Column(Boolean)
 
-class quiz(Base):
-	__tablename__='quiz'
-	id=Column(Integer, primary_key=True)
-	country= Column(String)
-	name=Column(String)
 
