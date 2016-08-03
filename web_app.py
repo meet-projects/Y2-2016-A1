@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 # SQLAlchemy stuff
 ### Add your tables here!
 # For example:
 # from database_setup import Base, Potato, Monkey
-from database_setup import Base
+from database_setup import Base, Quiz
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -24,7 +24,7 @@ def main():
 
 @app.route("/flag/<string:flag_name>")
 def flag(flag_name):
-    quizzes= session.query(quiz).filter_by(country=flag_name).all()
+    quizzes= session.query(Quiz).filter_by(country=flag_name).all()
     picture= url_for('static', filename=flag_name+".png")
     return render_template('country.html',quizzes=quizzes, picture=picture)
  
