@@ -20,7 +20,7 @@
 
 <div class="container">
 	<h1 align="center">{{title}}</h1>
-	<form action="{{url_for('quiz', quiz_id=quiz.id)}}" method="POST">
+	<h2align="center"> Score: {{score}} </h2>
 	{% for question in quiz_question %}
 
 		<div class="form-group vertical">
@@ -29,18 +29,15 @@
 				{{question.question}}
 				
 			</label>
+			{{question}}
 			<br>
-			<input type="radio" name="{{question.id}}" value="{{question.option_1}} ">{{question.option_1}}
-			<br>
-			<input type="radio" name="{{question.id}}" value="{{question.option_2}} ">{{question.option_2}}
-			<br>
-			<input type="radio" name="{{question.id}}" value="{{question.option_3}} ">{{question.option_3}} <br>
-			<input type="radio" name="{{question.id}}" value="{{question.option_4}} ">{{question.option_4}}<br>
+			
 		</div>
 	{% endfor %}
 	<input type="submit" name="submit">
-	</form>
+	
 
 </div>
 </body>
+</html>
 </html>
