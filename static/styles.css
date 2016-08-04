@@ -1,10 +1,29 @@
 /* Add your CSS Code here */
 .thumbnail{
 	border: none;
+	background-color: transparent;
 }
 .double-lines{
 	height:20px;
 	border-bottom:5px solid #1d3461;
 	border-top:5px solid #a30015;
 	margin-top :7px;
+}
+
+body{
+
+
+	color:#7F1910; 
+}
+
+#imgg{
+	background-image: url("hi.jpg");
+	background-repeat: repeat-x;
+	height: 100%
+	webkit-filter: blur(345678px);
+	moz-filter: blur(56945px);
+	o-filter: blur(569567px);
+	ms-filter: blur(569567px);
+	filter: blur(56956px);
+
 }

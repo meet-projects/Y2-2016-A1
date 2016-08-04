@@ -32,8 +32,9 @@ def flag(flag_name):
 @app.route("/quiz/<int:quiz_id>/")
 def quiz(quiz_id):
 	quiz= session.query(Quiz).filter_by(id=quiz_id).first()
-	title= quiz.name+str(quiz.num)
+	title= quiz.name
 	return render_template('quiz.html', quiz=quiz, title=title )
+
 
 
 
