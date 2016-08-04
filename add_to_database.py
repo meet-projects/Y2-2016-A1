@@ -13,27 +13,35 @@ session = DBSession()
 
 china_quiz_1=Quiz(
 	country="China",
-	name="China_1",
+	name="China_1"
 	)
 china_quiz_2=Quiz(
    country="China",
-   name="China_2",
- )
+   name="China_2"
+)
 france_quiz_1=Quiz(
  country="France",
- name="France_1",
+ name="France_1"
 )
 france_quiz_2=Quiz(
 	country="France",
-	name="France_2",
+	name="France_2"
 )
 usa_quiz_1=Quiz(
-  country="United_States",
-  name="United_States_1",
+  country="Usa",
+  name="United_States_1"
 )
 usa_quiz_2=Quiz(
-  country="United_States",
-  name="United_States_2",
+  country="Usa",
+  name="United_States_2"
+)
+india_quiz_1=Quiz(
+	country="India",
+	name="India_1"
+)
+india_quiz_2=Quiz(
+	country="India",
+	name="India_2"
 )
 
 
@@ -43,6 +51,8 @@ session.add(france_quiz_1)
 session.add(france_quiz_2)
 session.add(usa_quiz_1)
 session.add(usa_quiz_2)
+session.add(india_quiz_1)
+session.add(india_quiz_2)
 session.commit()
 
 china_1_question_1= Questions(
@@ -321,6 +331,96 @@ usa_2_question_5= Questions(
 	option_4="James Madison",
 	correct=3
 )
+india_1_question_1=Questions(
+	quiz_id=india_quiz_1.id,
+	question="What is the traditional clothing in India?",
+	option_1="bracce",
+	option_2="sari",
+	option_3="lace",
+	option_4="ombaz",
+	correct=2
+	)
+india_1_question_2=Questions(
+	quiz_id=india_quiz_1.id,
+	question="Where is India?",
+	option_1="West Europe",
+	option_2="North Africa",
+	option_3="South Asia",
+	option_4="North America",
+	correct=3
+	)
+india_1_question_3=Questions(
+	quiz_id=india_quiz_1.id,
+	question="How many people live in India?",
+	option_1="1.5 billion people",
+	option_2="1.2 billion people",
+	option_3="500 million people",
+	option_4="90 million people",
+	correct=2
+	)
+india_1_question_4=Questions(
+	quiz_id=india_quiz_1.id,
+	question="What is a traditional food in India?",
+	option_1="Pasta",
+	option_2="Shawarma",
+	option_3="Pumpkin soup",
+	option_4="Biryani",
+	correct=4
+	)
+india_1_question_5=Questions(
+	quiz_id=india_quiz_1.id,
+	question="How many states are there in India?",
+	option_1="1",
+	option_2="29",
+	option_3="35",
+	option_4="55",
+	correct=2
+	)
+india_2_question_1=Questions(
+	quiz_id=india_quiz_2.id,
+	question="What is the common Indian religion?",
+	option_1="Islam",
+	option_2="Jewdaism",
+	option_3="Christianity",
+	option_4="Hinduism",
+	correct=4
+	)
+india_2_question_2=Questions(
+	quiz_id=india_quiz_2.id,
+	question="Who is the president of India?",
+	option_1="Xi Jinping",
+	option_2="Jacob Zuma",
+	option_3="Robert Mugabe",
+	option_4="Pranab Mukherjee",
+	correct=4
+	)
+india_2_question_3=Questions(
+	quiz_id=india_quiz_2.id,
+	question="What is the common language in India?",
+	option_1="Indo-Aryan languages",
+	option_2="Dravidian languages",
+	option_3="Austroasiatic",
+	option_4="Sino-Tibetan",
+	correct=1
+	)
+india_2_question_4=Questions(
+	quiz_id=india_quiz_2.id,
+	question="Who discovered India?",
+	option_1="Colombus",
+	option_2="Vasco de Gama",
+	option_3="Silva Neto",
+	option_4="Kransisko",
+	correct=2
+	)
+india_2_question_5=Questions(
+	quiz_id=india_quiz_2.id,
+	question="When did India become independant?",
+	option_1="1950",
+	option_2="1947",
+	option_3="1934",
+	option_4="1889",
+	correct=2
+	)
 session.add(china_1_question_1)
 session.add(china_1_question_2)
 session.add(china_1_question_3)
@@ -351,6 +451,16 @@ session.add(usa_2_question_2)
 session.add(usa_2_question_3)
 session.add(usa_2_question_4)
 session.add(usa_2_question_5)
+session.add(india_1_question_1)
+session.add(india_1_question_2)
+session.add(india_1_question_3)
+session.add(india_1_question_4)
+session.add(india_1_question_5)
+session.add(india_2_question_1)
+session.add(india_2_question_2)
+session.add(india_2_question_3)
+session.add(india_2_question_4)
+session.add(india_2_question_5)
 
 session.commit()
 
