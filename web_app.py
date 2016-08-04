@@ -38,9 +38,10 @@ def quiz(quiz_id ):
 		quiz_question=session.query(Questions).filter_by(quiz_id=quiz_id).all()
 		return render_template('quiz.html', quiz=quiz, title=title, quiz_question=quiz_question)
 	else:
+		score=0
 		for question_id in request.form:
 			
-			score=0
+			
 			if question_id!= "submit":
 				
 				question=session.query(Questions).filter_by(id=int(question_id)).first ()
