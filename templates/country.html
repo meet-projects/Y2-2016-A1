@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-    QuizIt~France 
+    {{flag_name}} 
   </title>
   
 <!-- Latest compiled and minified CSS -->
@@ -22,6 +22,8 @@
 <br>
 <h1>{{flag_name}}</h1>
 <br>
+<div class= "double-lines" ></div>
+</div>
 <br>
 </div>
 <div align="center" class="container">
@@ -37,7 +39,7 @@
 <ol align="center" class="list-group">
 {% for quiz in quizzes %}
 	
-	<li class="list-group-item"><a href="{{url_for('quiz', quiz_id=quiz.id)}}"> Quiz 1</a></li>
+	<li class="list-group-item"><a href="{{url_for('quiz', quiz_id=quiz.id)}}"> {{quiz.name}}</a></li>
 	<br>
 {% endfor %}
 </ol>
