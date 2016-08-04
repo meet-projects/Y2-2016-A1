@@ -11,7 +11,6 @@ Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
-
 session.query(Quiz).delete()
 session.query(Questions).delete()
 session.commit()

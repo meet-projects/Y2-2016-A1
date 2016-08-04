@@ -14,32 +14,26 @@ session = DBSession()
 china_quiz_1=Quiz(
 	country="China",
 	name="China_1",
-	num=1
 	)
 china_quiz_2=Quiz(
    country="China",
    name="China_2",
-   num=2
  )
 france_quiz_1=Quiz(
  country="France",
  name="France_1",
- num=1
 )
 france_quiz_2=Quiz(
 	country="France",
 	name="France_2",
-	num=2
 )
-us_quiz_1=Quiz(
+usa_quiz_1=Quiz(
   country="United_States",
   name="United_States_1",
-  num=1
 )
-us_quiz_2=Quiz(
+usa_quiz_2=Quiz(
   country="United_States",
   name="United_States_2",
-  num=2
 )
 
 
@@ -47,8 +41,8 @@ session.add(china_quiz_1)
 session.add(china_quiz_2)
 session.add(france_quiz_1)
 session.add(france_quiz_2)
-session.add(us_quiz_1)
-session.add(us_quiz_2)
+session.add(usa_quiz_1)
+session.add(usa_quiz_2)
 session.commit()
 
 china_1_question_1= Questions(
@@ -237,8 +231,8 @@ france_2_question_5= Questions(
 	option_4="1650-1720",
 	correct=3
 )
-us_1_question_1= Questions(
-	quiz_id=us_quiz_1.id,
+usa_1_question_1= Questions(
+	quiz_id=usa_quiz_1.id,
 	question="When is the US independance day?",
 	option_1="15th of October, 1988",
 	option_2="4th of July, 1776",
@@ -246,8 +240,8 @@ us_1_question_1= Questions(
 	option_4="6th of December, 1890",
 	correct=2
 )
-us_1_question_2= Questions(
-	quiz_id=us_quiz_1.id,
+usa_1_question_2= Questions(
+	quiz_id=usa_quiz_1.id,
 	question="Who was the US's third president?",
 	option_1="Abraham Lincoln",
 	option_2="George Washington",
@@ -255,8 +249,8 @@ us_1_question_2= Questions(
 	option_4="Thomas Jefferson",
 	correct=4
 )
-us_1_question_3= Questions(
-	quiz_id=us_quiz_1.id,
+usa_1_question_3= Questions(
+	quiz_id=usa_quiz_1.id,
 	question="Which one of the following is an American national holiday?",
 	option_1="Thanksgiving Day",
 	option_2="Dragon Boat festival",
@@ -264,8 +258,8 @@ us_1_question_3= Questions(
 	option_4="Ascension Thursday",
 	correct=1
 )
-us_1_question_4= Questions(
-	quiz_id=us_quiz_1.id,
+usa_1_question_4= Questions(
+	quiz_id=usa_quiz_1.id,
 	question="What is the US's capital?",
 	option_1="California",
 	option_2="Washington DC",
@@ -273,8 +267,8 @@ us_1_question_4= Questions(
 	option_4="New York",
 	correct=2
 )
-us_1_question_5= Questions(
-	quiz_id=us_quiz_1.id,
+usa_1_question_5= Questions(
+	quiz_id=usa_quiz_1.id,
 	question="What is the US's population?",
 	option_1="1.2 billion",
 	option_2="23 million",
@@ -282,8 +276,8 @@ us_1_question_5= Questions(
 	option_4="318 million",
 	correct=4
 )
-us_2_question_1= Questions(
-	quiz_id=us_quiz_2.id,
+usa_2_question_1= Questions(
+	quiz_id=usa_quiz_2.id,
 	question="What is the supreme law of the land?",
 	option_1="Independance",
 	option_2="American",
@@ -291,8 +285,8 @@ us_2_question_1= Questions(
 	option_4="Constitution",
 	correct=4
 )
-us_2_question_2= Questions(
-	quiz_id=us_quiz_2.id,
+usa_2_question_2= Questions(
+	quiz_id=usa_quiz_2.id,
 	question="How many states are in the US?",
 	option_1="60",
 	option_2="49",
@@ -300,8 +294,8 @@ us_2_question_2= Questions(
 	option_4="14",
 	correct=3
 )
-us_2_question_3= Questions(
-	quiz_id=us_quiz_2.id,
+usa_2_question_3= Questions(
+	quiz_id=usa_quiz_2.id,
 	question="Which president freed slaves?",
 	option_1="Abraham Lincoln",
 	option_2="George Washington",
@@ -309,8 +303,8 @@ us_2_question_3= Questions(
 	option_4="Bill Clinton",
 	correct=1
 )
-us_2_question_4= Questions(
-	quiz_id=us_quiz_2.id,
+usa_2_question_4= Questions(
+	quiz_id=usa_quiz_2.id,
 	question="Where is the White House located?",
 	option_1="New York",
 	option_2="Boston",
@@ -318,8 +312,8 @@ us_2_question_4= Questions(
 	option_4="Washington DC",
 	correct=4
 )
-us_2_question_5= Questions(
-	quiz_id=us_quiz_2.id,
+usa_2_question_5= Questions(
+	quiz_id=usa_quiz_2.id,
 	question="Which president was the only one to serve more than two terms?",
 	option_1="George Washington",
 	option_2="Woodrow Wilson",
@@ -347,16 +341,16 @@ session.add(france_2_question_2)
 session.add(france_2_question_3)
 session.add(france_2_question_4)
 session.add(france_2_question_5)
-session.add(us_1_question_1)
-session.add(us_1_question_2)
-session.add(us_1_question_3)
-session.add(us_1_question_4)
-session.add(us_1_question_5)
-session.add(us_2_question_1)
-session.add(us_2_question_2)
-session.add(us_2_question_3)
-session.add(us_2_question_4)
-session.add(us_2_question_5)
+session.add(usa_1_question_1)
+session.add(usa_1_question_2)
+session.add(usa_1_question_3)
+session.add(usa_1_question_4)
+session.add(usa_1_question_5)
+session.add(usa_2_question_1)
+session.add(usa_2_question_2)
+session.add(usa_2_question_3)
+session.add(usa_2_question_4)
+session.add(usa_2_question_5)
 
 session.commit()
 
