@@ -43,7 +43,14 @@ india_quiz_2=Quiz(
 	country="India",
 	name="India 2"
 )
-
+italy_quiz_1 = Quiz(
+	country = "Italy",
+	name ="italy_1"
+)
+italy_quiz_2 = Quiz(
+	country = "Italy",
+	name ="italy_2"
+)
 
 session.add(china_quiz_1)
 session.add(china_quiz_2)
@@ -53,6 +60,8 @@ session.add(usa_quiz_1)
 session.add(usa_quiz_2)
 session.add(india_quiz_1)
 session.add(india_quiz_2)
+session.add(italy_quiz_1)
+session.add(italy_quiz_2)
 session.commit()
 
 china_1_question_1= Questions(
@@ -421,6 +430,96 @@ india_2_question_5=Questions(
 	option_4="1889",
 	correct=2
 	)
+italy_1_question_1=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="How many people live in Italy?",
+	option_1="80 million",
+	option_2="60 million",
+	option_3="120 million",
+	option_4="75 million",
+	correct=2
+	)
+italy_1_question_2=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the capital of Italy?",
+	option_1="Rome",
+	option_2="Milan",
+	option_3="Bari",
+	option_4="Rimini",
+	correct=1
+	)
+italy_1_question_3=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the size of Italy?",
+	option_1="404,344 km",
+	option_2="456,688 km",
+	option_3="888,123 km",
+	option_4="301,338 km",
+	correct=2
+	)
+italy_1_question_4=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the common food in Italy?",
+	option_1="Shwarma",
+	option_2="Humburger",
+	option_3="Pasta",
+	option_4="Shnitzel",
+	correct=3
+	)
+italy_1_question_5=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the taditional clothing of Italy?",
+	option_1="Sardegna",
+	option_2="Ombaz",
+	option_3="Althob",
+	option_4="Sari",
+	correct=1
+	)
+italy_2_question_1=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many countries in Italy?",
+	option_1="60",
+	option_2="45",
+	option_3="25",
+	option_4="39",
+	correct=4
+	)
+italy_2_question_2=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many religions in Italy?",
+	option_1="40",
+	option_2="20",
+	option_3="34",
+	option_4="23",
+	correct=2
+	)
+italy_2_question_3=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many muesum in Italy?",
+	option_1="2122",
+	option_2="3000",
+	option_3="4000",
+	option_4="2500",
+	correct=2
+	)
+italy_2_question_4=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="What is the national sport in Italy?",
+	option_1="Soccer",
+	option_2="Volleyball",
+	option_3="Basketball",
+	option_4="Table Tennis",
+	correct=1
+	)
+italy_2_question_5=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="What is the nickname of Rome?",
+	option_1="The busy city",
+	option_2="The city of romance",
+	option_3="The eternal city",
+	option_4="The popular city",
+	correct=3
+	)
 session.add(china_1_question_1)
 session.add(china_1_question_2)
 session.add(china_1_question_3)
@@ -461,6 +560,16 @@ session.add(india_2_question_2)
 session.add(india_2_question_3)
 session.add(india_2_question_4)
 session.add(india_2_question_5)
+session.add(italy_1_question_1)
+session.add(italy_1_question_2)
+session.add(italy_1_question_3)
+session.add(italy_1_question_4)
+session.add(italy_1_question_5)
+session.add(italy_2_question_1)
+session.add(italy_2_question_2)
+session.add(italy_2_question_3)
+session.add(italy_2_question_4)
+session.add(italy_2_question_5)
 
 session.commit()
 

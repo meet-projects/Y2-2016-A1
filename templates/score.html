@@ -1,7 +1,7 @@
 <DOCTYPE! html>
 <html>
 <head>
-	<title>{{quiz.name}}</title>
+	<title></title>
 	<!-- Latest compiled and minified CSS -->
 
 <meta charset="utf-8">
@@ -20,8 +20,8 @@
 
 <div class="container">
 	<h1 align="center">{{title}}</h1>
-	<h2align="center"> Score: {{score}} </h2>
-	{% for question in quiz_question %}
+	<h2 align="center"> Score: {{score}} </h2>
+	{% for question in questions %}
 
 		<div class="form-group vertical">
 
@@ -29,12 +29,12 @@
 				{{question.question}}
 				
 			</label>
-			{{question}}
+			<p>{{question_to_answer[question.id]}}</p>
+			
 			<br>
 			
 		</div>
 	{% endfor %}
-	<input type="submit" name="submit">
 	
 
 </div>

@@ -45,7 +45,7 @@ def quiz(quiz_id ):
 				
 				question=session.query(Questions).filter_by(id=int(question_id)).first ()
 				correct=question.correct
-				question_to_answer={}
+				
 				if correct==1:
 					correct_text=question.option_1
 				elif correct==2:
@@ -54,20 +54,38 @@ def quiz(quiz_id ):
 					correct_text=question.option_3
 				else:
 					correct_text=question.option_4
-				question_to_answer[int(question_id)]=correct_text
 
-				if correct_text==request.form[question_id]:
+				print("CORRECT: ", correct_text)
+				print("user: ", request.form[question_id])
+				print correct_text == request.form[question_id]
+				
+
+				print ("USER ANSWER: ")
+				if correct_text == request.form[question_id]:
+					print ("hello, correct matches user")
 					score=score+20;
 					
-		return redirect (url_for('result', score=score, quiz_id=quiz_id, question_to_answer=question_to_answer))
+		return redirect (url_for('result', score=score, quiz_id=quiz_id))
 
+@app.route("/result/<int:quiz_id>/<int:score>")
+def result(quiz_id, score):
+	questions=session.query(Questions).filter_by(quiz_id=quiz_id).all()
+	question_to_answer = {}
 
-		return redirect(url_for("main_page.html"))
-@app.route("/result/<int:quiz_id>")
-def result(quiz_id, score, question_to_answer):
-	question=session.query(Questions).filter_by(quiz_id=quiz_id).all()
+	for question in questions:
+		correct=question.correct
+		if correct==1:
+			correct_text=question.option_1
+		elif correct==2:
+			correct_text=question.option_2
+		elif correct==3:
+			correct_text=question.option_3
+		else:
+			correct_text=question.option_4
+	question_to_answer[question.id]=correct_text
 
-	return render_template('score.html', score=score, question=question, question_to_answer=question_to_answer)
+	return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer)
+
 
 
 
