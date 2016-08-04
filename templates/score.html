@@ -20,37 +20,43 @@
 
 <div class="main-content-div">
 
-<div class="container">
-<div class="row">
+	<div class="container">
 
-	<h1 align="center">{{quiz_name}}</h1>
-	<br>
-	<h2 align="center"> Score: {{score}} % </h2>
-	<br>
-	<div class= "double-lines" ></div>
-	<br>
-	<div class=“col-md-6”>
-	{% for question in questions %}
 
-		<div class="form-group vertical">
-
-			<label>
-				{{question.question}}
-				
-			</label>
-			<p>{{question_to_answer[question.id]}}</p>
-			
+		<h1 align="center">{{quiz_name}}</h1>
+		<br>
+		<h2 align="center"> Score: {{score}} % </h2>
+		<br>
+		<div class= "double-lines" ></div>
 			<br>
+			<div class="row">
+				<div class="col-md-6 col-xs-6">
+				{% for question in questions %}
+
+					<div class="form-group vertical">
+
+						<label>
+							{{question.question}}
+							
+						</label>
+						<p>{{question_to_answer[question.id]}}</p>
+						
+						<br>
+						
+					</div>
+				{% endfor %}
+				</div>
+				<div class="col-md-6 col-xs-6" align="center">
+					<div id="country_name">
+					<h1>{{country_name}}</h1>
+					<p>
+					{{info}}
+					</p>
+					</div>
+				</div>
 			
-		</div>
-	{% endfor %}
+			</div>
 	</div>
-	<div class=“col-md-6”>
-	<h1>this</h1>
-	</div>
-	
-	</div>
-</div>
 </div>
 <div class="main-content-div:after"></div>
 

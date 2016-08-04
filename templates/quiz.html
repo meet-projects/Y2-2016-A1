@@ -22,7 +22,8 @@
 
 <div class="container">
 	<h1 align="center">{{title}}</h1>
-	<form action="{{url_for('quiz', quiz_id=quiz.id)}}" method="POST">
+	<div class= "double-lines" ></div>
+	<form action="{{url_for('quiz', country_name=country_name, quiz_id=quiz.id)}}" method="POST">
 	{% for question in quiz_question %}
 
 		<div class="form-group vertical">
