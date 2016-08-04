@@ -19,8 +19,12 @@
 <body>
 
 <div class="container">
-	<h1 align="center">{{title}}</h1>
-	<h2 align="center"> Score: {{score}} </h2>
+	<h1 align="center">{{quiz_name}}</h1>
+	<br>
+	<h2 align="center"> Score: {{score}} % </h2>
+	<br>
+	<div class= "double-lines" ></div>
+	<br>
 	{% for question in questions %}
 
 		<div class="form-group vertical">

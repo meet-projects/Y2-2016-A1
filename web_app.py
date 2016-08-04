@@ -60,7 +60,6 @@ def quiz(quiz_id ):
 				print("user: ", request.form[question_id])
 				print correct_text == request.form[question_id]
 				
-
 				print ("USER ANSWER: ")
 				if correct_text == request.form[question_id]:
 					print ("hello, correct matches user")
@@ -71,21 +70,26 @@ def quiz(quiz_id ):
 @app.route("/result/<int:quiz_id>/<int:score>")
 def result(quiz_id, score):
 	questions=session.query(Questions).filter_by(quiz_id=quiz_id).all()
+	quiz_ = session.query(Quiz).filter_by(id=quiz_id).first()
+	quiz_name = quiz_.name
 	question_to_answer = {}
 
 	for question in questions:
 		correct=question.correct
 		if correct==1:
 			correct_text=question.option_1
+			question_to_answer[question.id]=correct_text
 		elif correct==2:
 			correct_text=question.option_2
+			question_to_answer[question.id]=correct_text
 		elif correct==3:
 			correct_text=question.option_3
+			question_to_answer[question.id]=correct_text
 		else:
 			correct_text=question.option_4
-	question_to_answer[question.id]=correct_text
+			question_to_answer[question.id]=correct_text
 
-	return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer)
+	return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name)
 
 
 

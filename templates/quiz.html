@@ -20,6 +20,7 @@
 
 <div class="container">
 	<h1 align="center">{{title}}</h1>
+	<div class= "double-lines" ></div>
 	<form action="{{url_for('quiz', quiz_id=quiz.id)}}" method="POST">
 	{% for question in quiz_question %}
 
