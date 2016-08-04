@@ -58,7 +58,7 @@ def quiz(quiz_id ):
 
 				print("CORRECT: ", correct_text)
 				print("user: ", request.form[question_id])
-				print correct_text == request.form[question_id]
+				print (correct_text == request.form[question_id])
 				
 				print ("USER ANSWER: ")
 				if correct_text == request.form[question_id]:
