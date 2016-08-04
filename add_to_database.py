@@ -13,29 +13,44 @@ session = DBSession()
 
 china_quiz_1=Quiz(
 	country="China",
-	name="China_1",
+	name="China_1"
 	)
 china_quiz_2=Quiz(
    country="China",
-   name="China_2",
- )
+   name="China_2"
+)
 france_quiz_1=Quiz(
  country="France",
- name="France_1",
+ name="France_1"
 )
 france_quiz_2=Quiz(
 	country="France",
-	name="France_2",
+	name="France_2"
 )
 usa_quiz_1=Quiz(
-  country="United_States",
-  name="United_States_1",
+  country="Usa",
+  name="United_States_1"
 )
 usa_quiz_2=Quiz(
-  country="United_States",
-  name="United_States_2",
+  country="Usa",
+  name="United_States_2"
 )
-
+india_quiz_1=Quiz(
+	country="India",
+	name="India_1"
+)
+india_quiz_2=Quiz(
+	country="India",
+	name="India_2"
+)
+italy_quiz_1 = Quiz(
+	country = "italy",
+	name ="italy_1"
+)
+italy_quiz_2 = Quiz(
+	country = "italy",
+	name ="italy_2"
+)
 
 session.add(china_quiz_1)
 session.add(china_quiz_2)
@@ -43,6 +58,10 @@ session.add(france_quiz_1)
 session.add(france_quiz_2)
 session.add(usa_quiz_1)
 session.add(usa_quiz_2)
+session.add(india_quiz_1)
+session.add(india_quiz_2)
+session.add(italy_quiz_1)
+session.add(italy_quiz_2)
 session.commit()
 
 china_1_question_1= Questions(
@@ -321,6 +340,186 @@ usa_2_question_5= Questions(
 	option_4="James Madison",
 	correct=3
 )
+india_1_question_1=Questions(
+	quiz_id=india_quiz_1.id,
+	question="What is the traditional clothing in India?",
+	option_1="bracce",
+	option_2="sari",
+	option_3="lace",
+	option_4="ombaz",
+	correct=2
+	)
+india_1_question_2=Questions(
+	quiz_id=india_quiz_1.id,
+	question="Where is India?",
+	option_1="West Europe",
+	option_2="North Africa",
+	option_3="South Asia",
+	option_4="North America",
+	correct=3
+	)
+india_1_question_3=Questions(
+	quiz_id=india_quiz_1.id,
+	question="How many people live in India?",
+	option_1="1.5 billion people",
+	option_2="1.2 billion people",
+	option_3="500 million people",
+	option_4="90 million people",
+	correct=2
+	)
+india_1_question_4=Questions(
+	quiz_id=india_quiz_1.id,
+	question="What is a traditional food in India?",
+	option_1="Pasta",
+	option_2="Shawarma",
+	option_3="Pumpkin soup",
+	option_4="Biryani",
+	correct=4
+	)
+india_1_question_5=Questions(
+	quiz_id=india_quiz_1.id,
+	question="How many states are there in India?",
+	option_1="1",
+	option_2="29",
+	option_3="35",
+	option_4="55",
+	correct=2
+	)
+india_2_question_1=Questions(
+	quiz_id=india_quiz_2.id,
+	question="What is the common Indian religion?",
+	option_1="Islam",
+	option_2="Jewdaism",
+	option_3="Christianity",
+	option_4="Hinduism",
+	correct=4
+	)
+india_2_question_2=Questions(
+	quiz_id=india_quiz_2.id,
+	question="Who is the president of India?",
+	option_1="Xi Jinping",
+	option_2="Jacob Zuma",
+	option_3="Robert Mugabe",
+	option_4="Pranab Mukherjee",
+	correct=4
+	)
+india_2_question_3=Questions(
+	quiz_id=india_quiz_2.id,
+	question="What is the common language in India?",
+	option_1="Indo-Aryan languages",
+	option_2="Dravidian languages",
+	option_3="Austroasiatic",
+	option_4="Sino-Tibetan",
+	correct=1
+	)
+india_2_question_4=Questions(
+	quiz_id=india_quiz_2.id,
+	question="Who discovered India?",
+	option_1="Colombus",
+	option_2="Vasco de Gama",
+	option_3="Silva Neto",
+	option_4="Kransisko",
+	correct=2
+	)
+india_2_question_5=Questions(
+	quiz_id=india_quiz_2.id,
+	question="When did India become independant?",
+	option_1="1950",
+	option_2="1947",
+	option_3="1934",
+	option_4="1889",
+	correct=2
+	)
+italy_1_question_1=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="How many people live in Italy?",
+	option_1="80 million",
+	option_2="60 million",
+	option_3="120 million",
+	option_4="75 million",
+	correct=2
+	)
+italy_1_question_2=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the capital of Italy?",
+	option_1="Rome",
+	option_2="Milan",
+	option_3="Bari",
+	option_4="Rimini",
+	correct=1
+	)
+italy_1_question_3=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the size of Italy?",
+	option_1="404,344 km",
+	option_2="456,688 km",
+	option_3="888,123 km",
+	option_4="301,338 km",
+	correct=2
+	)
+italy_1_question_4=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the common food in Italy?",
+	option_1="Shwarma",
+	option_2="Humburger",
+	option_3="Pasta",
+	option_4="Shnitzel",
+	correct=3
+	)
+italy_1_question_5=Questions(
+	quiz_id=italy_quiz_1.id,
+	question="What is the taditional clothing of Italy?",
+	option_1="Sardegna",
+	option_2="Ombaz",
+	option_3="Althob",
+	option_4="Sari",
+	correct=1
+	)
+italy_2_question_1=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many countries in Italy?",
+	option_1="60",
+	option_2="45",
+	option_3="25",
+	option_4="39",
+	correct=4
+	)
+italy_2_question_2=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many religions in Italy?",
+	option_1="40",
+	option_2="20",
+	option_3="34",
+	option_4="23",
+	correct=2
+	)
+italy_2_question_3=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="How many muesum in Italy?",
+	option_1="2122",
+	option_2="3000",
+	option_3="4000",
+	option_4="2500",
+	correct=2
+	)
+italy_2_question_4=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="What is the national sport in Italy?",
+	option_1="Soccer",
+	option_2="Volleyball",
+	option_3="Basketball",
+	option_4="Table Tennis",
+	correct=1
+	)
+italy_2_question_5=Questions(
+	quiz_id=italy_quiz_2.id,
+	question="What is the nickname of Rome?",
+	option_1="The busy city",
+	option_2="The city of romance",
+	option_3="The eternal city",
+	option_4="The popular city",
+	correct=3
+	)
 session.add(china_1_question_1)
 session.add(china_1_question_2)
 session.add(china_1_question_3)
@@ -351,6 +550,26 @@ session.add(usa_2_question_2)
 session.add(usa_2_question_3)
 session.add(usa_2_question_4)
 session.add(usa_2_question_5)
+session.add(india_1_question_1)
+session.add(india_1_question_2)
+session.add(india_1_question_3)
+session.add(india_1_question_4)
+session.add(india_1_question_5)
+session.add(india_2_question_1)
+session.add(india_2_question_2)
+session.add(india_2_question_3)
+session.add(india_2_question_4)
+session.add(india_2_question_5)
+session.add(italy_1_question_1)
+session.add(italy_1_question_2)
+session.add(italy_1_question_3)
+session.add(italy_1_question_4)
+session.add(italy_1_question_5)
+session.add(italy_2_question_1)
+session.add(italy_2_question_2)
+session.add(italy_2_question_3)
+session.add(italy_2_question_4)
+session.add(italy_2_question_5)
 
 session.commit()
 
