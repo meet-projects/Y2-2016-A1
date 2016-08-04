@@ -45,11 +45,11 @@ india_quiz_2=Quiz(
 )
 italy_quiz_1 = Quiz(
 	country = "Italy",
-	name ="italy_1"
+	name ="Italy 1"
 )
 italy_quiz_2 = Quiz(
 	country = "Italy",
-	name ="italy_2"
+	name ="Italy 2"
 )
 
 session.add(china_quiz_1)

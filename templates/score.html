@@ -19,12 +19,15 @@
 <body>
 
 <div class="container">
+<div class="row">
+
 	<h1 align="center">{{quiz_name}}</h1>
 	<br>
 	<h2 align="center"> Score: {{score}} % </h2>
 	<br>
 	<div class= "double-lines" ></div>
 	<br>
+	<div class=“col-md-6”>
 	{% for question in questions %}
 
 		<div class="form-group vertical">
@@ -39,8 +42,12 @@
 			
 		</div>
 	{% endfor %}
+	</div>
+	<div class=“col-md-6”>
+	<h1>this</h1>
+	</div>
 	
-
+	</div>
 </div>
 </body>
 </html>
