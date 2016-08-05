@@ -15,6 +15,8 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 <meta name=“viewport” content=“width= device-width, initialscale=1.0”>   
+<link rel=stylesheet type=text/js href="{{ url_for('static', filename='script.js') }}">
+
 </head>
 <body>
 
@@ -39,7 +41,7 @@
 							{{question.question}}
 							
 						</label>
-						<p>{{question_to_answer[question.id]}}</p>
+						<p id="answer" >{{question_to_answer[question.id]}}</p>
 						
 						<br>
 						
@@ -50,7 +52,12 @@
 					<div id="country_name">
 					<h1>{{country_name}}</h1>
 					<p>
-					{{info}}
+					<ul>
+				{% for i in info %}
+					<li>{{i}}<br><br></li>
+
+					{% endfor %}
+					</ul>
 					</p>
 					</div>
 				</div>

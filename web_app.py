@@ -17,24 +17,31 @@ session = DBSession()
 
 #YOUR WEB APP CODE GOES HERE
 
-india_info = r"""
-President: Pranab Mukherjee (2012)
+india_info = ["President: Pranab Mukherjee (2012)","Prime Minister: Narendra Modi (2014)","Land area: 1,147,949 sq mi (2,973,190 sq km)", "total area: 1,269,338 sq mi (3,287,590 sq km)", "Population (2014 est.): 1,236,344,631 (growth rate: 1.25%)", "birth rate: 19.89/1000","infant mortality rate: 43.19/1000", "life expectancy: 67.8"
 
-Prime Minister: Narendra Modi (2014)
+,"Capital (2011 est.): New Delhi, 22.654 million","Largest cities: Mumbai 19.744 million; Kolkata 14.402 million; Chennai 8.784 million; Bangalore 8.614 million; Hyderabad 7.837 million (2011)", "Monetary unit: Rupee"]
+'''
+france_info= []
+President: Francois Hollande (2012)
 
-Land area: 1,147,949 sq mi (2,973,190 sq km); total area: 1,269,338 sq mi (3,287,590 sq km)
+Prime Minister: Manuel Valls (2014)
 
-Population (2014 est.): 1,236,344,631 (growth rate: 1.25%); birth rate: 19.89/1000; infant mortality rate: 43.19/1000; life expectancy: 67.8
+Land area: 210,688 squared miles (545,630 squared kilometres)
 
-Capital (2011 est.): New Delhi, 22.654 million
+Total area: 211,209 squared miles(547,030 squared kilometres)
 
-Largest cities: Mumbai 19.744 million; Kolkata 14.402 million; Chennai 8.784 million; Bangalore 8.614 million; Hyderabad 7.837 million (2011)
+Population (2014 est.): 66,259,012  (growth rate: 0,45%)
 
-Monetary unit: Rupee
+Birth rate: 12.49/1000
 
-"""
-france_info= r"""
-France
+Infant mortality rate: 3.31/1000
+
+Life expectancy: 81.66
+
+Capital and largest city(2014 est.): Paris, 10.764 (metro. area)
+
+Other large cities: Lyon, Marseille-Aix-en-Provence, Lille, Nice-Cannes,Toulouse.
+
 
 """
 italy_info= r"""
@@ -89,7 +96,8 @@ Capital (2011 est.): Beijing, 15.594 million
 Largest cities: Shanghai 20.208 million; Guangzhou 10.849 million; Shenzhen 10.63 million; Chongqing 9.977 million; Wuhan 9.158 million (2011)
 
 Monetary unit: Yuan/Renminbi
-"""
+'''
+
 
 @app.route('/')
 def main():
@@ -112,11 +120,10 @@ def quiz(country_name,quiz_id ):
 		return render_template('quiz.html', country_name=country_name, quiz=quiz, title=title, quiz_question=quiz_question)
 	else:
 		score=0
+		correct_questions = []
+		incorrect_questions = []
 		for question_id in request.form:
-			
-			
 			if question_id!= "submit":
-				
 				question=session.query(Questions).filter_by(id=int(question_id)).first ()
 				correct=question.correct
 				
@@ -137,11 +144,14 @@ def quiz(country_name,quiz_id ):
 				if correct_text == request.form[question_id]:
 					print ("hello, correct matches user")
 					score=score+20;
+					correct_questions.append(request.form[question_id])
+				else:
+					incorrect_questions.append(request.form[question_id])
 					
-		return redirect (url_for('result', country_name=country_name, score=score, quiz_id=quiz_id))
+		return redirect (url_for('result', country_name=country_name, score=score, quiz_id=quiz_id , incorrect_questions=incorrect_questions, correct_questions=correct_questions))
 
 @app.route("/result/<string:country_name>/<int:quiz_id>/<int:score>")
-def result(country_name,quiz_id, score):
+def result(country_name,quiz_id, score ):
 	questions=session.query(Questions).filter_by(quiz_id=quiz_id).all()
 	quiz_ = session.query(Quiz).filter_by(id=quiz_id).first()
 	quiz_name = quiz_.name
@@ -163,6 +173,7 @@ def result(country_name,quiz_id, score):
 		if correct==1:
 			correct_text=question.option_1
 			question_to_answer[question.id]=correct_text
+
 		elif correct==2:
 			correct_text=question.option_2
 			question_to_answer[question.id]=correct_text
@@ -173,7 +184,7 @@ def result(country_name,quiz_id, score):
 			correct_text=question.option_4
 			question_to_answer[question.id]=correct_text
 
-	return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name)
+	return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name )
 
 
 

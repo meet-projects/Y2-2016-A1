@@ -15,6 +15,13 @@ body{
 
 	color:#7F1910; 
 }
+.list-group{
+	
+	align-content: "center";
+	opacity: 0.6;
+	
+
+}
 
 .main-content-div{
 
@@ -28,6 +35,22 @@ body{
 	filter: blur(56956px);
 }
 
+.buttons{
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #a30015;
+	border: none;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+	padding: 20px;
+	width: 200px;
+	transition: all 1.0s;
+	cursor: pointer;
+	margin: 5px;
+	border-color: #f4511e;
+	opacity: 0.5;
+}
 .main-content-div:after {
 
    content : "";
