@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String
+from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
@@ -25,6 +25,12 @@ class Quiz(Base):
   country= Column(String)
   name=Column(String)
 
-
+class  Answers(Base):
+  """docstring for  """
+  __tablename__='answers'
+  id= Column(Integer, primary_key=True)
+  cookie_session=Column(String)
+  question_id=Column(Integer, ForeignKey('question.id'))
+  correct= Column(Boolean)
 
 

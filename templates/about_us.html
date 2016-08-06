@@ -19,27 +19,23 @@
 
 <div class="main-content-div">
 <ul id="navigation" class="nav nav-tabs">
-  <li role="presentation" ><a  href="#" class="navword" >Home</a></li>
+  <li role="presentation" ><a  href="{{ url_for ('main') }}" class="navword" >Home</a></li>
   <li role="presentation"><a href="#" class="navword" >About us</a></li>
   
 </ul>
 <div align="center">
 <br>
-<h1>{{flag_name}}</h1>
+<h1>About us</h1>
 <br>
 <div class= "double-lines" ></div>
 </div>
 <br>
 </div>
 <div align="center" class="container">
-<img class= 'picture-circle' src="{{ url_for('static', filename='logoh.png') }}" width="210"> 
+<img class= 'picture-circle' src="{{ url_for('static', filename='logoh.png') }}" width="150"> 
 
 
-<div align="center">
-<form action="{{ url_for('GO BACK TO SCORE') }}">
-<input type="submit" name="back" value="back" class="buttons"> 
-</form>
-</div>
+
 </div>
 <div class="main-content-div:after"></div>
 

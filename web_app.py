@@ -1,4 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
+from flask.sessions import SessionInterface, SessionMixin
+from uuid import uuid4
 app = Flask(__name__)
 
 # SQLAlchemy stuff
@@ -13,7 +15,7 @@ engine = create_engine('sqlite:///project.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
-
+#session["uid"]= uuid4()
 
 #YOUR WEB APP CODE GOES HERE
 
@@ -30,6 +32,10 @@ china_info= ["President: Xi Jinping (2013)","Prime Minister: Premier Li Keqiang 
 @app.route("/")
 def main():
     return render_template('main_page.html')
+
+@app.route("/AboutUs")
+def about_us():
+    return render_template('about_us.html')
 
 @app.route("/flag/<string:flag_name>/ cc ")
 def flag(flag_name):
@@ -75,11 +81,16 @@ def quiz(country_name,quiz_id ):
                     correct_questions.append(request.form[question_id])
                 else:
                     incorrect_questions.append(request.form[question_id])
+        
+        print (session['uid'])
                     
-        return redirect (url_for('result', country_name=country_name, score=score, quiz_id=quiz_id , incorrect_questions=incorrect_questions, correct_questions=correct_questions))
+        return redirect (url_for('.result', country_name=country_name, score=score, quiz_id=quiz_id , incorrect_questions=incorrect_questions, correct_questions=correct_questions))
 
 @app.route("/result/<string:country_name>/<int:quiz_id>/<int:score>")
 def result(country_name,quiz_id, score ):
+    incorrect_questions = session.args["incorrect_questions"]
+    correct_questions= session.args["correct_questions"]
+    print (correct_questions)
     questions=session.query(Questions).filter_by(quiz_id=quiz_id).all()
     quiz_ = session.query(Quiz).filter_by(id=quiz_id).first()
     quiz_name = quiz_.name
@@ -112,7 +123,7 @@ def result(country_name,quiz_id, score ):
             correct_text=question.option_4
             question_to_answer[question.id]=correct_text
 
-    return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name )
+    return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name, correct_questions=correct_questions )
 
 
 
