@@ -64,7 +64,7 @@ body{
 }
 .main-content-div:after {
 
-   content : "";
+    content : "";
     display: block;
     position: absolute;
     top: 0;
@@ -74,6 +74,7 @@ body{
     height: 130%;
     opacity : 0.5;
     z-index: -1;
+    font-family: 'Raleway', sans-serif;
 }
 #country_name{
 	background-color: white;
