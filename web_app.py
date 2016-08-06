@@ -1,7 +1,9 @@
 from flask import Flask, render_template, url_for, request, redirect
-from flask.sessions import SessionInterface, SessionMixin
+from flask import session as flasksession
 from uuid import uuid4
 app = Flask(__name__)
+
+app.secret_key = 'abc123'
 
 # SQLAlchemy stuff
 ### Add your tables here!
@@ -56,9 +58,11 @@ def quiz(country_name,quiz_id ):
         score=0
         correct_questions = []
         incorrect_questions = []
+        was_correct = {}
+        print(request.form)
         for question_id in request.form:
             if question_id!= "submit":
-                question=session.query(Questions).filter_by(id=int(question_id)).first ()
+                question=session.query(Questions).filter_by(id=int(question_id)).first()
                 correct=question.correct
                 
                 if correct==1:
@@ -79,22 +83,32 @@ def quiz(country_name,quiz_id ):
                     print ("hello, correct matches user")
                     score=score+20;
                     correct_questions.append(request.form[question_id])
+                    was_correct[question.id] =True
                 else:
                     incorrect_questions.append(request.form[question_id])
+                    was_correct[question.id] = False
         
-        print (session['uid'])
+
+        #print (session['uid'])<
+        flasksession['correct_questions'] = correct_questions
                     
-        return redirect (url_for('.result', country_name=country_name, score=score, quiz_id=quiz_id , incorrect_questions=incorrect_questions, correct_questions=correct_questions))
+        flasksession['incorrect_questions'] = incorrect_questions
+        flasksession['wascorrect'] = was_correct
+        print('correct questions in score', flasksession['wascorrect'])
+                    
+        return redirect (url_for('result', country_name=country_name, score=score, quiz_id=quiz_id))
 
 @app.route("/result/<string:country_name>/<int:quiz_id>/<int:score>")
 def result(country_name,quiz_id, score ):
-    incorrect_questions = session.args["incorrect_questions"]
-    correct_questions= session.args["correct_questions"]
-    print (correct_questions)
+    incorrect_questions = flasksession["incorrect_questions"]
+    correct_questions= flasksession["correct_questions"]
+    was_correct = flasksession['wascorrect']    
+    print(flasksession.items())
     questions=session.query(Questions).filter_by(quiz_id=quiz_id).all()
     quiz_ = session.query(Quiz).filter_by(id=quiz_id).first()
     quiz_name = quiz_.name
     question_to_answer = {}
+    correctness = {}
     info = ''
     if country_name.capitalize() == 'India':
         info = india_info
@@ -107,8 +121,13 @@ def result(country_name,quiz_id, score ):
     elif country_name== 'Italy':
         info= italy_info
 
+    print(was_correct)
     for question in questions:
         correct=question.correct
+        if str(question.id) in was_correct:
+            correctness[question.id] = was_correct[str(question.id)]
+        else:
+            correctness[question.id] = False 
         if correct==1:
             correct_text=question.option_1
             question_to_answer[question.id]=correct_text
@@ -123,7 +142,11 @@ def result(country_name,quiz_id, score ):
             correct_text=question.option_4
             question_to_answer[question.id]=correct_text
 
-    return render_template('score.html', score=score, questions=questions, question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name, correct_questions=correct_questions )
+    print(correctness)
+    return render_template('score.html', score=score, questions=questions, 
+        question_to_answer=question_to_answer, quiz_name=quiz_name, info=info, country_name=country_name, 
+        correct_questions=correct_questions,
+        correctness=correctness)
 
 
 
@@ -131,3 +154,4 @@ def result(country_name,quiz_id, score ):
 
 if __name__ == '__main__':
     app.run(debug=True)
+

@@ -20,7 +20,7 @@
 <div class="main-content-div">
 <ul id="navigation" class="nav nav-tabs">
   <li role="presentation" ><a  href="{{ url_for ('main') }}" class="navword" >Home</a></li>
-  <li role="presentation"><a href="#" class="navword" >About us</a></li>
+  <li role="presentation" class="active"><a href="#" class="navword" >About us</a></li>
   
 </ul>
 <div align="center">
@@ -37,6 +37,33 @@
 
 
 </div>
+	<div class="row">
+	<div class="col-xs-4 col-md-4">
+	    <a href="{{url_for('flag', flag_name='usa')}}" class="thumbnail">
+	      <img src="{{ url_for('static', filename='usa.jpg') }}" width="100" >
+	    </a>
+	    <div align='center' class="caption">
+	        <h3>U.S.A</h3>
+	    </div>
+	</div>
+	<div class="col-xs-4 col-md-4">
+	    <a href="{{url_for('flag', flag_name='india')}}" class="thumbnail">
+	      <img src="{{ url_for('static', filename='india.png') }}" width="100" >
+	    </a>
+	    <div align='center' class="caption">
+	        <h3>India</h3>
+	    </div>
+	</div>
+	<div class="col-xs-4 col-md-4">
+	    <a href="{{url_for('flag', flag_name='china')}}" class="thumbnail">
+	      <img src="{{ url_for('static', filename='china.png') }}" width="100" >
+	    </a>
+	    <div align='center' class="caption">
+	        <h3>China</h3>
+	    </div>
+	</div>
+	  
+	</div>
 <div class="main-content-div:after"></div>
 
 </body>

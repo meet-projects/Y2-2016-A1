@@ -45,7 +45,13 @@
 							{{question.question}}
 							
 						</label>
-						<p id="answer" >{{question_to_answer[question.id]}}</p>
+						<p id="answer"
+						{% if correctness[question.id] == True %}
+						class="correct"
+						{% else %}
+						class="incorrect"
+						{% endif %}
+						 >{{question_to_answer[question.id]}}</p>
 						
 						<br>
 						
