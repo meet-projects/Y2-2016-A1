@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>
-    {{flag_name}} 
+    About us 
   </title>
   
 <!-- Latest compiled and minified CSS -->
@@ -19,41 +19,23 @@
 
 <div class="main-content-div">
 <ul id="navigation" class="nav nav-tabs">
-  <li role="presentation" ><a href="{{ url_for ('main') }}" class="navword" >Home</a></li>
-  <li role="presentation"><a href="{{ url_for ('about_us') }}" class="navword" >About us</a></li>
+  <li role="presentation" ><a  href="{{ url_for ('main') }}" class="navword" >Home</a></li>
+  <li role="presentation"><a href="#" class="navword" >About us</a></li>
   
 </ul>
 <div align="center">
 <br>
-<h1>{{flag_name}}</h1>
+<h1>About us</h1>
 <br>
 <div class= "double-lines" ></div>
 </div>
 <br>
 </div>
 <div align="center" class="container">
-<img class= 'picture-circle' src="{{picture}}" width="210"> 
-</div>
-<br>
+<img class= 'picture-circle' src="{{ url_for('static', filename='logoh.png') }}" width="150"> 
 
-<br>
-<br>
-<br>
-<div class="row">
 
-<ol align="center" class="list-group">
-{% for quiz in quizzes %}
-	
-	<li class="list-group-item"><a href="{{url_for('quiz', country_name=flag_name, quiz_id=quiz.id)}}"> {{quiz.name}}</a></li>
-	<br>
-{% endfor %}
-</ol>
-</div>
-<div align="center">
-<form action="{{ url_for('main') }}">
-<input type="submit" name="back" value="back" class="buttons"> 
-</form>
-</div>
+
 </div>
 <div class="main-content-div:after"></div>
 

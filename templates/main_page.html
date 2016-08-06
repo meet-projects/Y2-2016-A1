@@ -19,6 +19,12 @@
 <div class="main-content-div">
 <div class="content" id="div-content">
  
+<ul id="navigation" class="nav nav-tabs">
+  <li  role="presentation" class="active"><a href="#" class="navword" >Home</a></li>
+  <li  role="presentation"><a href="{{ url_for ('about_us') }}" class="navword" >About us</a></li>
+  
+</ul>
+<br>
 	<div align="center" class="container">
 		<img class= 'picture-circle' src="{{ url_for('static', filename='logoh.png') }}" width="300" > 
 	</div>
