@@ -28,9 +28,33 @@ italy_info=["President: Sergio Mattarella (2015)","Prime Minister: Matteo Renzi 
 usa_info=["President: Barack H. Obama (2009)","Vice President: Joseph Biden (2009)","Land area: 3,539,225 sq mi (9,166,601 sq km)"," total area: 3,718,691 sq mi (9,631,420 sq km)","Population (2014 est.): 318,892,103 (growth rate: 0.77%)", " birth rate: 13.42/1000", "infant mortality rate: 6.17/1000"," life expectancy: 79.56 ", "density per sq mi: 88.6","Capital (2013 est.): Washington, DC, 646,449","Largest cities (2013 est.): New York, 8,405,837; Los Angeles, 3,884,307; Chicago, 2,718,782; Houston, 2,195,914; Philadelphia, 1,553,165","Monetary unit: dollar","Languages: English 82.1%, Spanish 10.7%, other Indo-European 3.8%, Asian and Pacific island 2.7%, other 0.7% (2000)","Ethnicity/race (2010 Census): White: 223,553,265 (72.4%); Black: 38,929,319 (12.6%); Asian: 14,674,252 (4.8%); American Indian and Alaska Native: 2,369,431 (0.8%); Native Hawaiian and other Pacific Islander: 1,225,195 (0.4%); Hispanic origin:1 50,477,594 (16.3%)","Religions: Protestant 51.3%, Roman Catholic 23.9%, Mormon 1.7%, other Christian 1.6%, Jewish 1.7%, Buddhist 0.7%, Muslim 0.6%, other or unspecified 2.5%, unaffiliated 12.1%, none 4% (2007)"]
 china_info= ["President: Xi Jinping (2013)","Prime Minister: Premier Li Keqiang (2013)","Land area: 3,600,927 sq mi (9,326,411 sq km); total area: 3,705,407 sq mi (9,596,960 sq km)1","Population (2014 est.): 1,355,692,576 (growth rate: 0.44%); birth rate: 12.17/1000; infant mortality rate: 14.79/1000; life expectancy: 75.15","Capital (2011 est.): Beijing, 15.594 million","Largest cities: Shanghai 20.208 million; Guangzhou 10.849 million; Shenzhen 10.63 million; Chongqing 9.977 million; Wuhan 9.158 million (2011)","Monetary unit: Yuan/Renminbi"]
 
-@app.route("/addquiz")
-def addquiz():
-    return render_template('add_quiz.html')
+@app.route("/addquiz/<string:country_name>/", methods= ["POST", "GET"])
+def addquiz(country_name):
+    if request.method== "GET":
+        return render_template('add_quiz.html', flag_name=country_name)
+    else:
+
+        numb=len(session.query(Quiz).filter_by(country=country_name).all())+1
+        new_name= country_name+" "+ str(numb)
+        new_quiz= Quiz(country=country_name, name= new_name )
+        session.add(new_quiz)
+        session.commit()
+
+        for question in range(5):
+            new_question=Questions(
+                question= request.form["question"+ str(question+1)] ,
+                quiz_id= new_quiz.id,
+                option_1= request.form[str(question+1)+ "option1"] ,
+                option_2= request.form[str(question+1)+ "option2"] ,
+                option_3= request.form[str(question+1)+ "option3"] ,
+                option_4= request.form[str(question+1)+ "option4"] ,
+                correct =request.form[str(question+1)+"correct"]
+                )
+            session.add(new_question)
+            session.commit()
+
+        return redirect(url_for('main'))
+            
 
 @app.route("/")
 def main():

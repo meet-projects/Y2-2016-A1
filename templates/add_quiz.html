@@ -31,7 +31,7 @@
 	<br>
 
 	
-	<form>
+	<form action="{{url_for('addquiz', country_name=flag_name)}}" method="POST">
 		{% for i in range(5) %}
 		<div class="row">
 			<div align="center" class="col-xs-4 col-md-4">Write your question here</div>
@@ -43,16 +43,16 @@
 			<div align="center" class="col-xs-4 col-md-4">
 
 			
-			<input type="text" name="question" placeholder="Question {{i+1}}">
+			<input type="text" name="question{{i+1}}" placeholder="Question {{i+1}}">
 			 </div>
 			 <div align="center" class="col-xs-2 col-md-2">
-			 <input type="text" name="option1" placeholder="Option 1">
-			 <input type="text" name="option1" placeholder="Option 2">
-			 <input type="text" name="option1" placeholder="Option 3">
-			 <input type="text" name="option1" placeholder="Option 4">
+			 <input type="text" name="{{i+1}}option1" placeholder="Option 1">
+			 <input type="text" name="{{i+1}}option2" placeholder="Option 2">
+			 <input type="text" name="{{i+1}}option3" placeholder="Option 3">
+			 <input type="text" name="{{i+1}}option4" placeholder="Option 4">
 			 </div>
 			 <div align="center" class="col-xs-2 col-md-2">
-			 <select>
+			 <select name="{{i+1}}correct">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
