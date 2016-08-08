@@ -31,13 +31,14 @@ china_info= ["President: Xi Jinping (2013)","Prime Minister: Premier Li Keqiang 
 
 @app.route("/")
 def main():
-    return render_template('main_page.html')
+    flags = session.query(Flag).all()
+    return render_template('main_page.html', flags = flags)
 
 @app.route("/AboutUs")
 def about_us():
     return render_template('about_us.html')
 
-@app.route("/flag/<string:flag_name>/ cc ")
+@app.route("/flag/<string:flag_name>/")
 def flag(flag_name):
     title= flag_name
     quizzes= session.query(Quiz).filter_by(country=flag_name.capitalize()).all()

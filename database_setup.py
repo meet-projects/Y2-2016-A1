@@ -19,6 +19,13 @@ class Questions(Base):
     option_4= Column(String)
     correct =Column(Integer)
 
+class Flag(Base):
+    __tablename__ = 'flag'
+    id = Column(Integer , primary_key = True)
+    flag_name = Column(String)
+    flag_source = Column(String)
+    
+
 class Quiz(Base):
   __tablename__='quiz'
   id=Column(Integer, primary_key=True)
