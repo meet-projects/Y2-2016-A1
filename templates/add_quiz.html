@@ -1,0 +1,74 @@
+<DOCTYPE! html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+	
+<meta charset="utf-8">
+<!-- Making Bootstrap Responsive -- >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+<meta name=“viewport” content=“width= device-width, initialscale=1.0”>   
+</head>
+<body>
+
+<div class="main-content-div">
+	<ul id="navigation" class="nav nav-tabs">
+	  	<li role="presentation" ><a href="{{ url_for ('main') }}" class="navword" >Home</a></li>
+	  	<li role="presentation"><a href="{{ url_for ('about_us') }}" class="navword" >About us</a></li>
+	</ul>
+
+	<h1 align="center"> Add Quiz</h1>
+	<div class= "double-lines" ></div>
+	<br>
+	<br>
+
+	
+	<form>
+		{% for i in range(5) %}
+		<div class="row">
+			<div align="center" class="col-xs-4 col-md-4">Write your question here</div>
+			<div align="center" class="col-xs-2 col-md-2">Write your options here</div>
+			<div align="center" class="col-xs-2 col-md-2">Choose correct option</div>
+			<!--<div align="center" class="col-xs-4 col-md-4">Write the correct option here</div> !-->
+		</div>
+		<div class="row">
+			<div align="center" class="col-xs-4 col-md-4">
+
+			
+			<input type="text" name="question" placeholder="Question {{i+1}}">
+			 </div>
+			 <div align="center" class="col-xs-2 col-md-2">
+			 <input type="text" name="option1" placeholder="Option 1">
+			 <input type="text" name="option1" placeholder="Option 2">
+			 <input type="text" name="option1" placeholder="Option 3">
+			 <input type="text" name="option1" placeholder="Option 4">
+			 </div>
+			 <div align="center" class="col-xs-2 col-md-2">
+			 <select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
+			 </div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+		<br>
+		<br>
+		{% endfor %}
+		<div align="center">
+			<input  type="submit" name="submit" value="submit" class="buttons">
+		</div>
+	</form>
+</div>
+<div class="background-img"></div>
+</body>
+</html>
