@@ -40,7 +40,19 @@
 	<br>
 <div class="container">
 	<div class="row">
-		<div class="col-md-2 col-xs-2"> </div>
+	{% for flag in flags %}
+		<div class="col-xs-4 col-md-4">
+	    <a href="{{url_for('flag', flag_name=flag.flag_name)}}" class="thumbnail">
+	      <img src="{{ url_for('static', filename=flag.flag_source) }}" width="100" >
+	    </a>
+	    <div align='center' class="caption">
+	        <h3>{{flag.flag_name}}</h3>
+	    </div>
+
+	</div>
+
+	{% endfor %}
+<!-- 		<div class="col-md-2 col-xs-2"> </div>
 	 	<div class="col-xs-4 col-md-4">
 		    <a href="{{url_for('flag', flag_name='france')}}" class="thumbnail">
 		      <img src="{{ url_for('static', filename='france.png') }}" width="100px" >
@@ -68,6 +80,7 @@
 	    <div align='center' class="caption">
 	        <h3>U.S.A</h3>
 	    </div>
+
 	</div>
 	<div class="col-xs-4 col-md-4">
 	    <a href="{{url_for('flag', flag_name='india')}}" class="thumbnail">
@@ -85,7 +98,7 @@
 	        <h3>China</h3>
 	    </div>
 	</div>
-	  
+ -->	  
 	</div>
 </div>
 </div>
