@@ -25,8 +25,6 @@ session.add(france)
 session.add(india)
 session.add(china)
 session.add(usa)
-session.query(Quiz).delete()
-session.query(Questions).delete()
 session.commit()
 
 # You can add some starter data for your database here.

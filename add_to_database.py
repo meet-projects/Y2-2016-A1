@@ -10,6 +10,11 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
+argentina_quiz_1=Quiz(
+	country="Argentina",
+	name= "Argentina 1"
+	)
+
 
 china_quiz_1=Quiz(
 	country="China",
@@ -51,7 +56,7 @@ italy_quiz_2 = Quiz(
 	country = "Italy",
 	name ="Italy 2"
 )
-
+session.add(argentina_quiz_1)
 session.add(china_quiz_1)
 session.add(china_quiz_2)
 session.add(france_quiz_1)
@@ -111,6 +116,51 @@ option_4="10%",
 correct=1
 )
 
+argentina_1_question_1=Questions(
+	quiz_id=argentina_quiz_1.id,
+	question="Which of the following is not an argentinian traditional food?",
+	option_1="Faina",
+	option_2="Empanadas",
+	option_3="Asado",
+	option_4="Alfajores",
+	correct=1
+	)
+argentina_1_question_2=Questions(
+	quiz_id=argentina_quiz_1.id,
+	question="When is Argentinian Independence Day?",
+	option_1="9 June 1810",
+	option_2="9 July 1810",
+	option_3="9 July 1816",
+	option_4="25 May 1810",
+	correct=3
+	)
+argentina_1_question_3=Questions(
+	quiz_id=argentina_quiz_1.id,
+	question="When do they celebrate the Student's day in Argentina?",
+	option_1="21 March",
+	option_2="2 May",
+	option_3="21 September",
+	option_4="1 September",
+	correct=3
+	)
+argentina_1_question_4=Questions(
+	quiz_id=argentina_quiz_1.id,
+	question="Which of the following colonized Argentina?",
+	option_1="Portugal",
+	option_2="Britain",
+	option_3="Italy",
+	option_4="Spain",
+	correct=4
+	)
+argentina_1_question_5=Questions(
+	quiz_id=argentina_quiz_1.id,
+	question="Who is the president of Argentina?",
+	option_1="Cristina Fernandez",
+	option_2="Mauricio Macri",
+	option_3="Amado Boudou",
+	option_4="Nestor Kirchner",
+	correct=2
+	)
 #quiz 2 - China:
 china_2_question_1=Questions(
 quiz_id=china_quiz_2.id,
@@ -520,6 +570,11 @@ italy_2_question_5=Questions(
 	option_4="The popular city",
 	correct=3
 	)
+session.add(argentina_1_question_5)
+session.add(argentina_1_question_4)
+session.add(argentina_1_question_3)
+session.add(argentina_1_question_2)
+session.add(argentina_1_question_1)
 session.add(china_1_question_1)
 session.add(china_1_question_2)
 session.add(china_1_question_3)
