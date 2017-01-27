@@ -50,11 +50,6 @@ body{
 
 	height: 100%
 	position: fixed;
-	webkit-filter: blur(345678px);
-	moz-filter: blur(56945px);
-	o-filter: blur(569567px);
-	ms-filter: blur(569567px);
-	filter: blur(56956px);
 }
 
 .buttons{
